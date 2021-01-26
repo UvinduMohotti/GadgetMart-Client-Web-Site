@@ -1,0 +1,63 @@
+// About
+.about-slider {
+	max-width: 580px,;
+	margin-bottom: 2.5rem;
+}
+
+.about-slider-item {
+	@include lazy-anim;
+	padding-top: 65.1%;
+
+	img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 2;
+	}
+}
+
+.feature-boxes-container {
+	.feature-box {
+		display: flex;
+		margin-bottom: 3.2rem;
+
+		i {
+			background: #f4f4f4;
+		}
+	}
+}
+
+.history-section {
+	.page-title {
+		margin-bottom: 9rem;
+		padding-top: .3rem;
+	}
+
+	.row {
+		margin-bottom: 3rem;
+	}
+
+	h2 {
+		margin-top: -.4rem;
+	}
+
+	@include mq(lg) {
+		.col-lg-5 {
+			-ms-flex: 0 0 45%;
+			flex: 0 0 45%;
+			max-width: 45%;
+		}
+
+		.col-lg-7 {
+			-ms-flex: 0 0 55%;
+			flex: 0 0 55%;
+			max-width: 55%;
+			padding-left: 70px;
+
+			&.order-lg-first {
+				padding-right: 70px;
+				padding-left: 15px;
+			}
+		}
+	}
+}

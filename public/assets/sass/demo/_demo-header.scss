@@ -1,0 +1,215 @@
+header {
+    z-index: 1000;
+
+    a:focus {
+        color: #fff;
+    }
+
+    .main-nav a:focus {
+        color: #777;
+    }
+}
+
+.badge-circle {
+    top: -1px;
+    left: 1.4rem;
+    width: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.dropdown-toggle i {
+    font-size: 2rem;
+}
+    
+.header .form-control {
+    padding: 0 2.8rem 0 1.6rem;
+    font-family: "Open Sans", sans-serif;
+    line-height: 0;
+    transition: none;
+}
+
+.header-search:not(.header-search-category) .btn {
+    height: 4rem;
+    padding: 2px .8rem 0 1.3rem;
+    background: #181b1f;
+    color: #777;
+    border-radius: 0 2rem 2rem 0;
+    font-size: 1.8rem;
+}
+
+.mobile-menu-container {
+    padding: 3px 3px 0;
+    font-size: 1.4rem;
+    font-family: "Open Sans", sans-serif;
+
+    .mobile-menu {
+        padding-top: .3rem;
+        padding-left: .3rem;
+    }
+
+    li.active {
+        background: #282e36;
+    }
+}
+
+.cart-dropdown .dropdown-menu {
+    z-index: 1000;
+    right: auto;
+    left: -2rem;
+
+    &::before {
+        right: auto;
+        left: 2rem;
+    }
+}
+
+.header-search .form-control::placeholder {
+    color: #666;
+}
+
+@include mq( lg ) {
+    .header-search-wrapper {
+        width: calc( 100% + 8px );
+        left: 0;
+        margin-bottom: 1.9rem;
+        color: #777;
+    }
+
+    .main-nav .menu .megamenu, .main-nav .menu > li > ul {
+        top: 0;
+        left: 26rem;
+    }
+
+    .menu-vertical.sf-arrows > li > .sf-with-ul:before, .menu-vertical.sf-arrows > li.show > .sf-with-ul:before {
+        left: calc( 100% + 14px );
+        transition: none;
+    }
+    
+    .header-icon.login-link {
+        margin-right: 2rem;
+    }
+    
+    .main-nav .menu > li {
+        margin: 0;
+        padding: 0;
+    
+        > a {
+            font-family: Poppins, sans-serif;
+        }
+    }
+    
+    .menu-vertical.sf-arrows > li > .sf-with-ul:after {
+        width: 3rem;
+        top: 13px;
+        right: -26px;
+    }
+    
+    .header-bottom {
+        width: 100%;
+        bottom: 3.8rem;
+        left: 0;
+    
+        .header-left {
+            h6 {
+                font-size: 11px;
+                font-weight: 600;
+                color: #777;
+                line-height: 1;
+            }
+        }
+    
+        > .container {
+            margin-bottom: 2.3rem;
+        }
+    }
+    
+    .menu-title a {
+        color: #777;
+        font-weight: 700;
+    
+        &:hover {
+            color: #777;
+        }
+    }
+    
+    .menu .megamenu .row > div {
+        padding-top: .8rem;
+    }
+
+    @include mq( 1400px, max ) {
+        header {
+            max-width: 25.6rem;
+        }
+
+        .header-search-wrapper {
+            width: calc( 100% );
+
+            .form-control {
+                width: 77%;
+            }
+        }
+
+        .main-nav .menu .megamenu {
+            left: 21.5rem;
+        }
+    }
+}
+
+@include mq( lg, max ) {
+    .header {
+        width: 100%;
+        min-height: auto;
+        padding: 0;
+
+        .logo {
+            width: 8rem;
+            margin: 2rem auto;
+            transform: none;
+        }
+
+        .dropdown-toggle i {
+            font-size: 2.2rem;
+        }
+
+        .container {
+            padding: 0 3rem 0 2rem;
+        }
+    }
+
+    .mobile-menu-toggler {
+        margin-top: 5px;
+
+        i {
+            font-size: 2.1rem;
+        }
+    }
+
+    .header-search i {
+        font-size: 1.9rem;
+    }
+
+    .header-search-wrapper {
+        width: 24rem;
+    }
+
+    .header-search:not(.header-search-category) {
+        .form-control {
+            border-radius: 0;
+        }
+
+        .btn {
+            border-radius: 0;
+        }
+    }
+
+    .cart-dropdown .dropdown-menu {
+        right: -2rem;
+        left: auto;
+
+        &::before {
+            right: 2rem;
+            left: auto;
+        }
+    }
+}
