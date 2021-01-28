@@ -101,6 +101,7 @@
                             <p>
                                 {{$shortdes}}
                             </p>
+                            <p>Warranty  :- {{$warranty}}</p>
                             <p>Stock Qty :- {{$qty}}</p>
                         </div><!-- End .product-desc -->
 

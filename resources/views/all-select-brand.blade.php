@@ -74,22 +74,21 @@
 
         <section class="container">
             <div class="row">
-                <div class="card">
+                <div class="card" style="width: 100%;">
                     <div class="card-body">
-                        <div class="form-row">
-                            <div class="col-md-6 mb-3">
+                        <div class="form-row" style="display: inline;">
+                            <div class="col-md-6 mb-3" style="display: inline-block; width: 40%;">
                                 <label for="minprice">Min Price</label>
                                 <input type="number" class="form-control" id="minprice" min="0" max="250000"
                                        placeholder="0-250000" required="">
                             </div>
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-6 mb-3" style="display: inline-block;width: 40%;">
                                 <label for="maxprice">Max Price</label>
                                 <input type="number" class="form-control" id="maxprice" min="250000" max="500000"
                                        placeholder="250000-500000" required="">
                             </div>
-                            <button id="search_button" onclick="loadsearchdata()" type="button"
-                                    class="btn btn-primary "><i
-                                    class="fa fa-search"></i> Search
+                            <button id="search_button" onclick="loadsearchdata()" type="button" class="btn btn-primary "
+                                    style="display: inline-block;"><i class="fa fa-search"></i> Search
                             </button>
                         </div>
                     </div>
@@ -153,6 +152,36 @@
 <script src="https://pagination.js.org/dist/2.1.5/pagination.js"></script>
 <script src="https://pagination.js.org/dist/2.1.5/pagination.min.js"></script>
 <script>
+
+    function validatemax() {
+        let result = false;
+        let regExp = "^\\+?[0-9]*\\.?[0-9]+$";
+        $('#maxprice').css('border-color', 'red');
+        if (!($('#maxprice').val() == null || $('#maxprice').val() == "") && $('#maxprice').val().trim().match(regExp)) {
+            $('#maxprice').css('border-color', '');
+            result = true;
+        } else {
+            $('#maxprice').css('border-color', 'red');
+
+            result = false;
+        }
+
+        return result;
+    }
+    function validatemin() {
+        let result = false;
+        let regExp = "^\\+?[0-9]*\\.?[0-9]+$";
+        $('#minprice').css('border-color', 'red');
+        if (!($('#minprice').val() == null || $('#minprice').val() == "") && $('#minprice').val().trim().match(regExp)) {
+            $('#minprice').css('border-color', '');
+            result = true;
+        } else {
+            $('#minprice').css('border-color', 'red');
+            result = false;
+        }
+
+        return result;
+    }
 
     let subcat=[];
     function loadSubCategory() {
@@ -329,82 +358,85 @@
     function loadsearchdata() {
         let min = $('#minprice').val();
         let max = $('#maxprice').val();
-        let brandid = $('#brandid').val();
-        var container = $('#pagination-demo1');
-        let count=0;
-        container.pagination({
-            dataSource: baseurlAPI + 'item',
-            locator: 'items',
-            totalNumber: 120,
-            pageSize: 20,
-            ajax: {
-                beforeSend: function () {
-                    container.prev().html('Loading data from API ...');
-                }
-            },
-            callback: function (response, pagination) {
-                window.console && console.log(22, response, pagination);
-                var dataHtml = '';
+        if (validatemax() & validatemin()) {
+            let brandid = $('#brandid').val();
+            var container = $('#pagination-demo1');
+            let count = 0;
+            container.pagination({
+                dataSource: baseurlAPI + 'item',
+                locator: 'items',
+                totalNumber: 120,
+                pageSize: 20,
+                ajax: {
+                    beforeSend: function () {
+                        container.prev().html('Loading data from API ...');
+                    }
+                },
+                callback: function (response, pagination) {
+                    window.console && console.log(22, response, pagination);
+                    var dataHtml = '';
 
-                $.each(response, function (index, item) {
+                    $.each(response, function (index, item) {
 
-                    let id = item['id'];
-                    let brand = item['brand'];
-                    let price = item['price'];
-                    price=parseFloat(price);
-                    min=parseFloat(min);
-                    max=parseFloat(max);
-                    let subCategory = item['subCategory'];
+                        let id = item['id'];
+                        let brand = item['brand'];
+                        let price = item['price'];
+                        price = parseFloat(price);
+                        min = parseFloat(min);
+                        max = parseFloat(max);
+                        let subCategory = item['subCategory'];
 
-                    for (let i in subcat){
-                        let response = subcat[i];
-                        let subid = response["id"];
-                        if (subid===subCategory){
-                            subCategory=response["name"];
+                        for (let i in subcat) {
+                            let response = subcat[i];
+                            let subid = response["id"];
+                            if (subid === subCategory) {
+                                subCategory = response["name"];
+                            }
+
                         }
 
+                        if (brand == brandid & (price >= min && price <= max)) {
+                            count++;
+                            dataHtml += '' +
+                                '<div class=\"product-default inner-quickview inner-icon col-xl-5col col-lg-3 col-md-4 col-6"\>\n' +
+                                '<figure>\n' +
+                                '<a href="#" onclick=\'loadsingledata("' + id + '")\'>\n' +
+                                '<img src=' + item['imageUrl'] + ' alt="image">\n' +
+                                '</a>\n' +
+                                '<div class="btn-icon-group">\n' +
+                                '<button class="btn-icon btn-add-cart" onclick=\'addproducttocart("' + id + '","' + item['name'] + '","' + item['price'] + '","' + item['imageUrl'] + '","' + item['itemtype'] + '")\'><i class="icon-shopping-cart"></i></button>\n' +
+                                '</div>\n' +
+                                '<button onclick=\'loadsingledata("' + id + '")\' class="btn-quickview" title="Quick View">\n' +
+                                'View Details</button>\n' +
+                                '</figure>\n' +
+                                '<div class="product-details">\n' +
+                                '<div class="category-wrap">\n' +
+                                '<div class="category-list">\n' +
+                                '<a href="#" class="product-category">' + subCategory + '</a>\n' +
+                                '</div>\n' +
+                                '</div>\n' +
+                                '<h2 class="product-title">\n' +
+                                '<a href="#">' + item['name'] + '</a>\n' +
+                                '</h2>\n' +
+                                '<div class="price-box">\n' +
+                                '   <span class="product-price">LKR ' + item['price'] + '</span>\n' +
+                                '</div><!-- End .price-box -->\n' +
+                                '</div><!-- End .product-details -->\n' +
+                                '</div>';
+                        }
+                    });
+                    if (count == 0) {
+                        dataHtml = "<div class=\"col-xs-12 col-lg-12\" data-animate='{\"class\":\"fadeInLeftBig\"}'>\n" +
+                            "                        <div class=\"notfound-item\">No Ads Found</div>\n" +
+                            "            </div>";
                     }
 
-                    if (brand == brandid & (price>=min && price<=max  ) ) {
-                        count++;
-                        dataHtml += '' +
-                            '<div class=\"product-default inner-quickview inner-icon col-xl-5col col-lg-3 col-md-4 col-6"\>\n' +
-                            '<figure>\n' +
-                            '<a href="#" onclick=\'loadsingledata("' + id + '")\'>\n' +
-                            '<img src=' + item['imageUrl'] + ' alt="image">\n' +
-                            '</a>\n' +
-                            '<div class="btn-icon-group">\n' +
-                            '<button class="btn-icon btn-add-cart" onclick=\'addproducttocart("'+id+'","'+item['name']+'","'+item['price']+'","'+item['imageUrl']+'","'+item['itemtype']+'")\'><i class="icon-shopping-cart"></i></button>\n' +
-                            '</div>\n' +
-                            '<button onclick=\'loadsingledata("' + id + '")\' class="btn-quickview" title="Quick View">\n' +
-                            'View Details</button>\n' +
-                            '</figure>\n' +
-                            '<div class="product-details">\n' +
-                            '<div class="category-wrap">\n' +
-                            '<div class="category-list">\n' +
-                            '<a href="#" class="product-category">'+subCategory+'</a>\n' +
-                            '</div>\n' +
-                            '</div>\n' +
-                            '<h2 class="product-title">\n' +
-                            '<a href="#">' + item['name'] + '</a>\n' +
-                            '</h2>\n' +
-                            '<div class="price-box">\n' +
-                            '   <span class="product-price">LKR ' + item['price'] + '</span>\n' +
-                            '</div><!-- End .price-box -->\n' +
-                            '</div><!-- End .product-details -->\n' +
-                            '</div>';
-                    }
-                });
-                if (count==0){
-                    dataHtml="<div class=\"col-xs-12 col-lg-12\" data-animate='{\"class\":\"fadeInLeftBig\"}'>\n" +
-                        "                        <div class=\"notfound-item\">No Ads Found</div>\n" +
-                        "            </div>";
+                    container.prev().html(dataHtml);
                 }
-
-                container.prev().html(dataHtml);
-            }
-        })
-
+            })
+        }else{
+            toastr.error('Something Went Wrong!', 'Error ! ');
+        }
     }
 
 

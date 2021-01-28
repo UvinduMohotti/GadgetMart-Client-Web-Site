@@ -203,19 +203,89 @@
 </body>
 
 <script>
+
+    function validatefullname() {
+        let result = false;
+        let regExp = /^([ \.]?[a-zA-Z]+){2,150}$/;
+        $('#fullname').css('border-color', 'red');
+        if (!($('#fullname').val() == null || $('#fullname').val() == "") && $('#fullname').val().trim().match(regExp)) {
+            $('#fullname').css('border-color', '');
+            result = true;
+        } else {
+            $('#fullname').css('border-color', 'red');
+
+            result = false;
+        }
+
+        return result;
+    }
+
+    function validateAddress() {
+        let result = false;
+        let regExp = /^[-.?!,;:/() A-Za-z0-9]*$/;
+        $('#address').css('border-color', 'red');
+        if (!($('#address').val() == null || $('#address').val() == "") ) {
+            $('#address').css('border-color', '');
+            result = true;
+        } else {
+            $('#address').css('border-color', 'red');
+
+            result = false;
+        }
+
+        return result;
+    }
+
+    function validatecontact_number() {
+        let result = false;
+        let regExp = /^(?:0)?(?:(11|21|23|24|25|26|27|31|32|33|34|35|36|37|38|41|45|47|51|52|54|55|57|63|65|66|67|81|91)(0|2|3|4|5|7|9)|7(0|1|2|5|6|7|8)\d)\d{6}$/;
+        let regExp2 = "0((11)|(2(1|[3-7]))|(3[1-8])|(4(1|5|7))|(5(1|2|4|5|7))|(6(3|[5-7]))|([8-9]1))([2-4]|5|7|9)[0-9]{6}";
+        $('#mobilenumber').css('border-color', 'red');
+        if (!($('#mobilenumber').val() == null || $('#mobilenumber').val() == "") && ($('#mobilenumber').val().trim().match(regExp2) || $('#mobilenumber').val().trim().match(regExp))) {
+            $('#mobilenumber').css('border-color', '');
+            result = true;
+        } else {
+            $('#mobilenumber').css('border-color', 'red');
+            result = false;
+        }
+
+        return result;
+    }
+
+    function validatecity() {
+        let result = false;
+        let regExp = /^[a-zA-Z\s]*$/;
+        $('#city').css('border-color', 'red');
+        if (!($('#city').val() == null || $('#city').val() == "") && $('#city').val().trim().match(regExp)) {
+            $('#city').css('border-color', '');
+
+            result = true;
+        } else {
+            $('#city').css('border-color', 'red');
+
+            result = false;
+        }
+
+        return result;
+    }
+
     function onClickNext(){
-        let fullname=$('#fullname').val();
-        let address=$('#address').val();
-        let city=$('#city').val();
-        let mobilenumber=$('#mobilenumber').val();
-        let row=''+fullname+' <br>\n' +
-        ''+address+' <br>\n' +
-       ' '+city+' <br>\n' +
-        mobilenumber;
-        $('#loadaddress').empty();
-        $('#loadaddress').append(row);
-        $('#main1').addClass('d-none');
-        $('#main2').removeClass('d-none');
+        if (validatefullname() & validatecontact_number() & validateAddress() & validatecity()) {
+            let fullname = $('#fullname').val();
+            let address = $('#address').val();
+            let city = $('#city').val();
+            let mobilenumber = $('#mobilenumber').val();
+            let row = '' + fullname +' '+
+                '  ' + address + ' \n' +
+                '  ' + city + ' \n' +
+                '  ' + mobilenumber;
+            $('#loadaddress').empty();
+            $('#loadaddress').append(row);
+            $('#main1').addClass('d-none');
+            $('#main2').removeClass('d-none');
+        }else{
+            toastr.error('Something Went Wrong!', 'Error ! ');
+        }
     }
     function addorderSummary(){
         var storedNames = JSON.parse(localStorage.getItem("item"));

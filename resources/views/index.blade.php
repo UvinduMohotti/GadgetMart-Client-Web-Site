@@ -38,7 +38,7 @@
 
         <section class="section-3 product-collection">
             <div class="container">
-                <h2 class="section-title">JUST ARRIVED - ABANS </h2>
+                <h2 class="section-title">JUST ARRIVED - <b>ABANS</b> </h2>
 
                 <div class="products-slider owl-carousel owl-theme dots-top" style="display: inline-flex" data-owl-options="{
 							'responsive': {
@@ -79,7 +79,7 @@
 
         <section class="section-5 product-collection">
             <div class="container">
-                <h2 class="section-title">JUST ARRIVED - SINGER </h2>
+                <h2 class="section-title">JUST ARRIVED - <b>SINGER</b> </h2>
 
                 <div class="row product-ajax-grid" style="display: inline-flex" id="singerdiv">
 

@@ -60,10 +60,10 @@
                             <li>
                                 <span class="contact-info-label">Email:</span> <a href="mailto:mail@example.com">uvindu98@gmail.com</a>
                             </li>
-                            <li>
-                                <span class="contact-info-label">Working Days/Hours:</span>
-                                Mon - Sun / 9:00 AM - 8:00 PM
-                            </li>
+{{--                            <li>--}}
+{{--                                <span class="contact-info-label">Working Days/Hours:</span>--}}
+{{--                                Mon - Sun / 9:00 AM - 8:00 PM--}}
+{{--                            </li>--}}
                         </ul>
                         <div class="social-icons mb-3 mb-lg-0">
                             <a href="#" class="social-icon social-facebook icon-facebook" target="_blank" title="Facebook"></a>
