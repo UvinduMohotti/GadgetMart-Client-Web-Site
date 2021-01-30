@@ -4,14 +4,24 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
-    <title>Porto - Bootstrap eCommerce Template</title>
+    <title>GadgetMart - EBuy </title>
 
     <meta name="keywords" content="HTML5 Template"/>
     <meta name="description" content="Porto - Bootstrap eCommerce Template">
     <meta name="author" content="SW-THEMES">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ URL::asset('assets/images/icons/favicon.ico')}}">
+    <link rel="icon" type="image/x-icon" href="{{ URL::asset('assets/images/gadgetmart.png')}}">
+
+    <!--=========================*
+               Datatable
+    *===========================-->
+    <!-- Start datatable css -->
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/vendors/data-table/css/jquery.dataTables.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/vendors/data-table/css/dataTables.bootstrap4.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/vendors/data-table/css/responsive.bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/vendors/data-table/css/responsive.jqueryui.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/vendors/jquery.steps/css/jquery.steps.css')}}">
 
 
 

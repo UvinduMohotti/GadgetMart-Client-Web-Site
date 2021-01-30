@@ -10,7 +10,7 @@
                             <h3>Customer Support</h3>
                             <h5>Need Assistance?</h5>
 
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec vestibulum magna, et dapib.</p>
+{{--                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec vestibulum magna, et dapib.</p>--}}
                         </div><!-- End .feature-box-content -->
                     </div><!-- End .feature-box -->
                 </div><!-- End .col-md-4 -->
@@ -23,7 +23,7 @@
                             <h3>Secured Payment</h3>
                             <h5>Safe &amp; Fast</h5>
 
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec vestibulum magna, et dapibus lacus.</p>
+{{--                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec vestibulum magna, et dapibus lacus.</p>--}}
                         </div><!-- End .feature-box-content -->
                     </div><!-- End .feature-box -->
                 </div><!-- End .col-md-4 -->
@@ -36,7 +36,7 @@
                             <h3>Returns</h3>
                             <h5>Easy &amp; Free</h5>
 
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec vestibulum magna, et dapib.</p>
+{{--                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec vestibulum magna, et dapib.</p>--}}
                         </div><!-- End .feature-box-content -->
                     </div><!-- End .feature-box -->
                 </div><!-- End .col-md-4 -->
@@ -60,10 +60,10 @@
                             <li>
                                 <span class="contact-info-label">Email:</span> <a href="mailto:mail@example.com">uvindu98@gmail.com</a>
                             </li>
-                            <li>
-                                <span class="contact-info-label">Working Days/Hours:</span>
-                                Mon - Sun / 9:00 AM - 8:00 PM
-                            </li>
+{{--                            <li>--}}
+{{--                                <span class="contact-info-label">Working Days/Hours:</span>--}}
+{{--                                Mon - Sun / 9:00 AM - 8:00 PM--}}
+{{--                            </li>--}}
                         </ul>
                         <div class="social-icons mb-3 mb-lg-0">
                             <a href="#" class="social-icon social-facebook icon-facebook" target="_blank" title="Facebook"></a>

@@ -11,6 +11,21 @@
 |
 */
 
+/**
+ * Login Route(s)
+ */
+Route::get('admin/login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('admin/login', 'Auth\LoginController@login')->name('admin.login');
+Route::get('admin/logout', 'Auth\LoginController@logout')->name('admin.logout');
+
+/**
+ * Register Route(s)
+ */
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('register', 'Auth\RegisterController@register');
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/', function () {
     return view('index');
 });
@@ -38,5 +53,10 @@ Route::get('product-single/{id}', 'CommonController@loadsingleProduct');
 
 Route::get('brand-view/{name}/{id}', 'CommonController@brandview');
 Route::get('category-view/{name}/{id}', 'CommonController@categoryview');
+Route::get('order-history', 'CommonController@orderhistory');
+
+Route::get('admin/retailer-report', 'CommonController@retailerreport')->name('retailer');
+
+
 
 

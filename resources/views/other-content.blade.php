@@ -35,11 +35,11 @@
 </div><!-- End .mobile-menu-container -->
 
 <div class="newsletter-popup mfp-hide bg-img" id="newsletter-popup-form"
-     style="background-image: url(/assets/images/newsletter_popup_bg.jpg)">
+     style="background-image: url(https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/apple-devices-giveback-201804_FMT_WHH?wid=1472&hei=1510&fmt=jpeg&qlt=80&op_usm=0.5,0.5&.v=1533681185656)">
     <div class="newsletter-popup-content">
-        <img src="{{ URL::asset('assets/images/logo-black.png')}}" alt="Logo" class="logo-newsletter">
+        <img src="{{ URL::asset('assets/images/gadgetmart.png')}}" alt="Logo" class="logo-newsletter">
         <h2>BE THE FIRST TO KNOW</h2>
-        <p>Subscribe to the Porto eCommerce newsletter to receive timely updates from your favorite products.</p>
+        <p>Subscribe to the GadgetMart newsletter to receive timely updates from your favorite products.</p>
         <form action="#">
             <div class="input-group">
                 <input type="email" class="form-control" id="newsletter-email" name="newsletter-email"
@@ -98,6 +98,13 @@
 <!-- Main JS File -->
 <script src="{{ URL::asset('assets/js/main.min.js')}}"></script>
 
+<script src="{{asset('assets/vendors/jquery.steps/js/jquery.steps.js')}}"></script>
+<script src="{{asset('assets/vendors/data-table/js/jquery.dataTables.js')}}"></script>
+<script src="{{asset('assets/vendors/data-table/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('assets/vendors/data-table/js/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{asset('assets/vendors/data-table/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{asset('assets/vendors/data-table/js/responsive.bootstrap.min.js')}}"></script>
+
 <script>
 
     function onclickCon(){
@@ -147,7 +154,7 @@
 
         let displaybutton;
         if (session==1){
-            displaybutton='<a href="'+cartviewurl+'" class="btn btn-block btn-primary">Checkout</a>';
+            displaybutton='<button  id="checkoutbtn" onclick="checkcartdata()" class="btn btn-block btn-primary">Checkout</button>';
         }else if (session==null | session== ''){
             displaybutton='<a href="'+login+'" class="btn btn-block btn-primary">Login for Checkout</a>';
         }
@@ -221,6 +228,20 @@
     }
 
     loadcontent();
+
+    function checklocalstorage(){
+        var storedNames2 = JSON.parse(localStorage.getItem("item"));
+        if (storedNames2===null){
+            $('#checkoutbtn').prop('disabled', true);
+        }else{
+            $('#checkoutbtn').prop('disabled', false);
+        }
+    }
+    function checkcartdata(){
+        window.location=baseurl+'cart-view';
+    }
+
+    checklocalstorage();
 
     function deletecartItem(getid){
         var storedNames = JSON.parse(localStorage.getItem("item"));
