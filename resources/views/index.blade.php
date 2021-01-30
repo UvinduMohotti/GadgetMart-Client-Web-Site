@@ -152,7 +152,7 @@
                         '<div class="product-details">\n' +
                         '<div class="category-wrap">\n' +
                         '<div class="category-list">\n' +
-                        '<a href="#" class="product-category">DRESS</a>\n' +
+                        '<a href="#" class="product-category"></a>\n' +
                         '</div>\n' +
                         '</div>\n' +
 
@@ -279,7 +279,7 @@
                         '<div class="product-details">\n' +
                         '<div class="category-wrap">\n' +
                         '<div class="category-list">\n' +
-                        '<a href="#" class="product-category">DRESS</a>\n' +
+                        '<a href="#" class="product-category"></a>\n' +
                         '</div>\n' +
                         '</div>\n' +
 
