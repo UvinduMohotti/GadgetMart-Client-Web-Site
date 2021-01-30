@@ -185,7 +185,7 @@
                 },
                 callback: function (response, pagination) {
                     window.console && console.log(22, response, pagination);
-                    var dataHtml = '';
+                    var dataHtml = '<div class="row">';
 
                     $.each(response, function (index, item) {
                         let id = item['id'];
@@ -233,6 +233,7 @@
                             "                        <div class=\"notfound-item\">No Ads Found</div>\n" +
                             "            </div>";
                     }
+                    dataHtml+="</div>";
 
 
                     container.prev().html(dataHtml);
@@ -332,7 +333,7 @@
                 },
                 callback: function (response, pagination) {
                     window.console && console.log(22, response, pagination);
-                    var dataHtml = '';
+                    var dataHtml = '<div class="row">';
 
                     $.each(response, function (index, item) {
 
@@ -387,7 +388,7 @@
                             "                        <div class=\"notfound-item\">No Ads Found</div>\n" +
                             "            </div>";
                     }
-
+                    dataHtml+="</div>";
                     container.prev().html(dataHtml);
                 }
             })

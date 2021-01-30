@@ -104,8 +104,8 @@
                 <div class="login-overlay"></div>
                 <div class="login-left">
                     <img src="{{asset('assets/images/gadgetmart.png')}}" alt="Logo">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tellus elit.</p>
-                    <a href="javascript:void(0);" class="btn btn-primary">Learn More</a>
+{{--                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tellus elit.</p>--}}
+{{--                    <a href="javascript:void(0);" class="btn btn-primary">Learn More</a>--}}
                 </div><!--login-left-->
             </div><!--login-bg-->
 

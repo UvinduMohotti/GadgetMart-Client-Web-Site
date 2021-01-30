@@ -10,7 +10,7 @@
                             <h3>Customer Support</h3>
                             <h5>Need Assistance?</h5>
 
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec vestibulum magna, et dapib.</p>
+{{--                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec vestibulum magna, et dapib.</p>--}}
                         </div><!-- End .feature-box-content -->
                     </div><!-- End .feature-box -->
                 </div><!-- End .col-md-4 -->
@@ -23,7 +23,7 @@
                             <h3>Secured Payment</h3>
                             <h5>Safe &amp; Fast</h5>
 
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec vestibulum magna, et dapibus lacus.</p>
+{{--                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec vestibulum magna, et dapibus lacus.</p>--}}
                         </div><!-- End .feature-box-content -->
                     </div><!-- End .feature-box -->
                 </div><!-- End .col-md-4 -->
@@ -36,7 +36,7 @@
                             <h3>Returns</h3>
                             <h5>Easy &amp; Free</h5>
 
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec vestibulum magna, et dapib.</p>
+{{--                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec vestibulum magna, et dapib.</p>--}}
                         </div><!-- End .feature-box-content -->
                     </div><!-- End .feature-box -->
                 </div><!-- End .col-md-4 -->
